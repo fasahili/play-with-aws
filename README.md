@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Task Manager App (Serverless)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple **Task Manager** web application built using **React**, **AWS Lambda**, **API Gateway**, **DynamoDB**, and **AWS Amplify**. It demonstrates a complete serverless application architecture.
 
-## Available Scripts
+---
+
+## Live Demo
+
+- 🔗 **Frontend (React + Amplify):** [View App](https://dev.d14lqh6xu30ss9.amplifyapp.com/)
+- 🔗 **API Endpoint (AWS API Gateway):** [Endpoint/dev/tasks/](https://c41e8ggp76.execute-api.us-east-1.amazonaws.com/dev/tasks/)
+
+
+## Backend Functions
+##### All Lambda functions are connected via API Gateway:
+| Function    | Endpoint      | Method |
+| ----------- | ------------- | ------ |
+| List Tasks  | `/tasks`      | GET    |
+| Create Task | `/tasks`      | POST   |
+| Delete Task | `/tasks/{id}` | DELETE |
+
+
+## AWS Lambda Functions
+
+This project includes three AWS Lambda functions created directly through the AWS Console:
+
+1. **listTasks**
+   - Fetches all tasks from the DynamoDB table.
+   - Triggered by a `GET` request to `/tasks`.
+
+2. **createTask**
+   - Creates a new task using a UUID, title, and optional description.
+   - Triggered by a `POST` request to `/tasks`.
+
+3. **deleteTask**
+   - Deletes a task based on its ID.
+   - Triggered by a `DELETE` request to `/tasks/{id}`.
+
+### Created via AWS Console:
+
+- Each function was built using the "Author from scratch" option.
+- Runtime: **Node.js 18.x**
+- Permissions: Attached an IAM role (`TasksLambdaRole`) with access to DynamoDB.
+- CORS headers were manually added to support frontend integration.
+- Functions were deployed and connected to API Gateway for HTTP access.
+
+---
+
+## Features
+
+- Add new tasks with title and optional description
+- View a list of all tasks
+- Delete tasks
+- Fully responsive and styled with basic CSS
+- Built with a modern serverless stack
+
+---
+
+## Architecture Overview
+
+- **Frontend:** React.js (created with `create-react-app`), hosted on AWS Amplify
+- **Backend:**
+  - AWS Lambda for business logic (list, create, delete tasks)
+  - API Gateway for HTTP API exposure
+  - DynamoDB to store tasks
+- **Integration:** AWS Amplify to connect React frontend with backend services
+
+---
+
+##  Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+```bash
+npm install       # install dependencies
+npm start         # run the app locally on http://localhost:3000
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
