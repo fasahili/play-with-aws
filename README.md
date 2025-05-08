@@ -10,6 +10,9 @@ This is a simple **Task Manager** web application built using **React**, **AWS L
 - 🔗 **API Endpoint (AWS API Gateway):** [Endpoint/dev/tasks/](https://c41e8ggp76.execute-api.us-east-1.amazonaws.com/dev/tasks/)
 
 
+![Task Manager Demo](assets/Aws-gif.gif)
+
+
 ## Backend Functions
 ##### All Lambda functions are connected via API Gateway:
 | Function    | Endpoint      | Method |
