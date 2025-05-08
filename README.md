@@ -9,12 +9,6 @@ This is a simple **Task Manager** web application built using **React**, **AWS L
 - 🔗 **Frontend (React + Amplify):** [View App](https://dev.d14lqh6xu30ss9.amplifyapp.com/)
 - 🔗 **API Endpoint (AWS API Gateway):** [Endpoint/dev/tasks/](https://c41e8ggp76.execute-api.us-east-1.amazonaws.com/dev/tasks/)
 
-## Demo Video
-
-<video width="100%" height="auto" controls>
-  <source src="assets/AWS-VIDEO.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
 
 ## Backend Functions
 ##### All Lambda functions are connected via API Gateway:
